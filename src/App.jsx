@@ -6,7 +6,7 @@ import Button from './components/Button'
 import Header from './components/Header'
 
 export default function App() {
-  const [numOfArticles, setNumOfArticles] = useState(4)
+  const [numOfArticles, setNumOfArticles] = useState(5)
   const [currentArticles, setCurrentArticles] = useState([])
 
   useEffect(() => {
@@ -30,39 +30,55 @@ export default function App() {
       <Header />
       <main>
         <ul>
+
           {/*------------Öğeleri aşağıda listeleyin-------------------------------------------------------*/}
 
-          <li className='article'>
-            <a href={currentArticles[0]?.link} target='_blank'>
-              {currentArticles[0]?.title}
+          {currentArticles.map((article, index) => 
+            <li key={index} className='article'>
+            <a href={article?.link} target='_blank'>
+              {article?.title}
             </a>
           </li>
-
-          <li className='article'>
-            <a href={currentArticles[1]?.link} target='_blank'>
-              {currentArticles[1]?.title}
-            </a>
-          </li>
-
-          <li className='article'>
-            <a href={currentArticles[2]?.link} target='_blank'>
-              {currentArticles[2]?.title}
-            </a>
-          </li>
-
-          <li className='article'>
-            <a href={currentArticles[3]?.link} target='_blank'>
-              {currentArticles[3]?.title}
-            </a>
-          </li>
-
-          {/*------------Öğeleri yukarıda listeleyin-------------------------------------------------------*/}
+          )}
+          
+        {/*------------Öğeleri yukarıda listeleyin-------------------------------------------------------*/}
+        
         </ul>
         <Button
           numOfArticles={numOfArticles}
           setCurrentArticles={setCurrentArticles}
-        />
+        />  
       </main>
     </div>
   )
+    
+  
 }
+
+{/*
+  <li className='article'>
+  <a href={currentArticles[0]?.link} target='_blank'>
+    {currentArticles[0]?.title}
+  </a>
+</li>
+
+<li className='article'>
+  <a href={currentArticles[1]?.link} target='_blank'>
+    {currentArticles[1]?.title}
+  </a>
+</li>
+
+<li className='article'>
+  <a href={currentArticles[2]?.link} target='_blank'>
+    {currentArticles[2]?.title}
+  </a>
+</li>
+
+<li className='article'>
+  <a href={currentArticles[3]?.link} target='_blank'>
+    {currentArticles[3]?.title}
+  </a>
+</li>
+*/}
+          
+       
